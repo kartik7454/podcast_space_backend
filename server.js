@@ -21,7 +21,7 @@ app.use(session( {
     saveUninitialized:true,
     store:store,
     cookie: {
-        secure: true, // required for cookies to work on HTTPS
+         // required for cookies to work on HTTPS
        
         sameSite: 'none'
       }
