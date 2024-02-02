@@ -11,7 +11,7 @@ import session from "../models/sessions.js"
 
 const todoshow= async  (req,res)=>{
 
-if(req.session.isAuth){try{
+try{
     
         const event =await todo.find({}).sort({createdAt:-1})
         res.status(200).json(event)
@@ -20,7 +20,7 @@ if(req.session.isAuth){try{
     
  catch(error){res.status(400).json({error:error.message})}}
 
- else{return res.status(400).json({error:"not logged in"})}
+ else{return res.status(400).json({error:"not logged in"})
     
 }
 
