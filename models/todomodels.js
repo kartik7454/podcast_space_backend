@@ -6,11 +6,29 @@ const todoSchema = new Schema({
 
     
         
-        "email": {type:String,
+        title: {type:String,
         required:true},
-        password: { type:String,
+
+        user: {type:String,
+                required:true},
+
+        desc: { type:String,
+                required:true},
+
+        tags: { type:String,
         required:true},
-       todo: { type : Array , "default" : [] }})
+
+       thumbnail: {type:String,
+                required:true},
+
+        source: { type:String,
+                required:true},
+
+       },
+       {
+        timestamps: true,
+    }
+       )
           
         
         
@@ -21,6 +39,6 @@ const todoSchema = new Schema({
 
     
 
-       const todo = mongoose.model("todo", todoSchema);
+       const todo = mongoose.model("podcast", todoSchema);
 
        export default todo
