@@ -18,7 +18,7 @@ const store = new mongDBSession({
 app.use(session( {
     secret:"cookie",
     resave:false,
-    saveUninitialized:false,
+    saveUninitialized:true,
     store:store,
     cookie: {
         secure: true, // required for cookies to work on HTTPS
