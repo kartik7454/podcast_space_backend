@@ -10,7 +10,7 @@ const mongDBSession = connectMongoDBSession(session);
 
 const app = express()
 app.use(cors())
-app.set("trust proxy", 1); 
+
 
 const store = new mongDBSession({
     uri:process.env.MONGO_URI,
@@ -21,6 +21,7 @@ app.use(session( {
     resave:false,
     saveUninitialized:true,
     store:store,
+    proxy: true,
     cookie: {
          // required for cookies to work on HTTPS
         secure: true,
