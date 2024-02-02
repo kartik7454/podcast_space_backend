@@ -22,7 +22,7 @@ app.use(session( {
     store:store,
     cookie: {
         secure: true, // required for cookies to work on HTTPS
-        httpOnly: false,
+       
         sameSite: 'none'
       }
 }))
