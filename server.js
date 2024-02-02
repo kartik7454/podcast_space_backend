@@ -2,13 +2,28 @@ import express from "express"
 import {} from 'dotenv/config'
 import mongoose from "mongoose"
 import {router} from "./routes/todoroutes.js"
+import session from "express-session"
+import connectMongoDBSession from "connect-mongodb-session";
+const mongDBSession = connectMongoDBSession(session);
+
 
 const app = express()
 
-//express app
+
+const store = new mongDBSession({
+    uri:process.env.MONGO_URI,
+    collection:"mySessions"
+})
+app.use(session( {
+    secret:"cookie",
+    resave:false,
+    saveUninitialized:false,
+    store:store
+}))
 
 
-// middelware
+
+
 
 app.use (express.json())
 app.use((req,res,next)=>{
@@ -28,3 +43,6 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((error)=>{
     console.log(error)
 })
+
+
+
