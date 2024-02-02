@@ -1,4 +1,5 @@
 import express from "express"
+import cors from 'cors';
 import {} from 'dotenv/config'
 import mongoose from "mongoose"
 import {router} from "./routes/todoroutes.js"
@@ -8,7 +9,7 @@ const mongDBSession = connectMongoDBSession(session);
 
 
 const app = express()
-
+app.use(cors())
 
 const store = new mongDBSession({
     uri:process.env.MONGO_URI,
