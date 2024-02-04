@@ -25,7 +25,7 @@ app.use(session( {
     cookie: {
         
          // required for cookies to work on HTTPS
-        secure: true,
+    
         sameSite: 'none'
       }
 }))
