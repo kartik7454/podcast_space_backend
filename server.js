@@ -23,7 +23,7 @@ app.use(session( {
     store:store,
     proxy: true,
     cookie: {
-        httpOnly: true,
+        
          // required for cookies to work on HTTPS
         secure: true,
         sameSite: 'none'
