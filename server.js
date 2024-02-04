@@ -21,9 +21,9 @@ app.use(session( {
     resave:false,
     saveUninitialized:true,
     store:store,
-    proxy: true,
+    
     cookie: {
-        
+         httpOnly: false,
          // required for cookies to work on HTTPS
         secure: true,
         sameSite: 'none'
